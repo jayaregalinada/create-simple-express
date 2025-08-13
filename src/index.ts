@@ -81,6 +81,7 @@ const renameFiles: Record<string, string | undefined> = {
   _prettierrc: '.prettierrc',
   _gitattributes: '.gitattributes',
   _env_example: '.env.example',
+  _env: '.env',
 };
 
 async function init() {
@@ -224,15 +225,7 @@ async function init() {
   };
 
   const files = fs.readdirSync(templateDirectory);
-  const filterFiles = files.filter((file: string) => file !== 'package.json');
-  for (const file of filterFiles) {
-    if (file.includes('.template')) {
-      const content = fs.readFileSync(path.join(templateDirectory, file));
-      const replacedContent = content.replaceAll('{{name}}', packageName);
-      write(file.replace('.template', ''), replacedContent);
-      continue;
-    }
-
+  for (const file of files.filter((file: string) => file !== 'package.json')) {
     write(file);
   }
 

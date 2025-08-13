@@ -11,7 +11,7 @@ import debug from 'debug';
  */
 // eslint-disable-next-line no-unused-vars
 export function errorHandlerMiddleware(err, req, res, next) {
-  const log = debug('{{name}}:error');
+  const log = debug('express-api:error');
 
   log(err.stack); // Log error for debugging
 

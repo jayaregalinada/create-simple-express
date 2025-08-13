@@ -3,7 +3,7 @@ import debug from 'debug';
 import process from 'node:process';
 import http from 'node:http';
 
-const log = debug('{{name}}:server');
+const log = debug('express-api:server');
 
 function normalizePort(portValue) {
   const port = parseInt(portValue, 10);
