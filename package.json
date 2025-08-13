@@ -39,6 +39,7 @@
   "homepage": "https://github.com/jayaregalinada/create-simple-express",
   "devDependencies": {
     "@clack/prompts": "^0.11.0",
+    "@types/node": "^24.2.1",
     "mri": "^1.2.0",
     "tsdown": "^0.14.1"
   }
