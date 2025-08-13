@@ -5,8 +5,8 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "dev": "cross-env DEBUG={{name}}:* NODE_ENV=development node --env-file-if-exists=.env --watch src/server.js",
-    "inspect": "cross-env DEBUG={{name}}:* NODE_ENV=development node --env-file-if-exists=.env --inspect --watch src/server.js",
+    "dev": "cross-env DEBUG=express-api:* NODE_ENV=development node --env-file-if-exists=.env --watch src/server.js",
+    "inspect": "cross-env DEBUG=express-api:* NODE_ENV=development node --env-file-if-exists=.env --inspect --watch src/server.js",
     "start": "npm run dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
