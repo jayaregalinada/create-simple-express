@@ -1,0 +1,13 @@
+{
+  "name": "express-basic",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --inspect --watch index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

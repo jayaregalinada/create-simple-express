@@ -1,11 +1,12 @@
 {
   "name": "create-simple-express",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Create Simple Express API app",
   "main": "index.js",
   "scripts": {
-    "dev": "unbuild --stub",
-    "build": "unbuild",
+    "dev": "tsdown --watch",
+    "build": "tsdown",
+    "typecheck": "tsc",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -14,17 +15,19 @@
     "api"
   ],
   "bin": {
-    "create-simple-express": "index.js"
+    "create-simple-express": "index.js",
+    "cse": "index.js"
   },
-  "author": "Jay Are Galinada <jayaregalinada@gmail.com>",
+  "files": [
+    "index.js",
+    "dist",
+    "templates/*"
+  ],
+  "author": "Jay Are Galinada",
   "license": "MIT",
   "type": "module",
-  "dependencies": {
-    "minimist": "^1.2.8"
-  },
-  "devDependencies": {
-    "@types/minimist": "^1.2.5",
-    "unbuild": "^3.6.0"
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
   },
   "repository": {
     "type": "git",
@@ -33,5 +36,10 @@
   "bugs": {
     "url": "https://github.com/jayaregalinada/create-simple-express/issues"
   },
-  "homepage": "https://github.com/jayaregalinada/create-simple-express"
+  "homepage": "https://github.com/jayaregalinada/create-simple-express",
+  "devDependencies": {
+    "@clack/prompts": "^0.11.0",
+    "mri": "^1.2.0",
+    "tsdown": "^0.14.1"
+  }
 }
