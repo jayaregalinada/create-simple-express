@@ -1,0 +1,37 @@
+{
+  "name": "create-simple-express",
+  "version": "1.0.0",
+  "description": "Create Simple Express API app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "express",
+    "simple",
+    "api"
+  ],
+  "bin": {
+    "create-simple-express": "index.js"
+  },
+  "author": "Jay Are Galinada <jayaregalinada@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "minimist": "^1.2.8"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.5",
+    "unbuild": "^3.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayaregalinada/create-simple-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jayaregalinada/create-simple-express/issues"
+  },
+  "homepage": "https://github.com/jayaregalinada/create-simple-express"
+}
