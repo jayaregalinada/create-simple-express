@@ -224,17 +224,29 @@ async function init() {
   };
 
   const files = fs.readdirSync(templateDirectory);
-  for (const file of files.filter((file: string) => file !== 'package.json')) {
+  const filterFiles = files.filter((file: string) => file !== 'package.json');
+  for (const file of filterFiles) {
+    if (file.includes('.template')) {
+      const content = fs.readFileSync(path.join(templateDirectory, file));
+      const replacedContent = content.replaceAll('{{name}}', packageName);
+      write(file.replace('.template', ''), replacedContent);
+      continue;
+    }
+
     write(file);
   }
 
-  const pkg = JSON.parse(
-    fs.readFileSync(path.join(templateDirectory, `package.json`), 'utf-8')
+  const packageJsonFile = fs.readFileSync(
+    path.join(templateDirectory, `package.json`),
+    'utf-8'
+  );
+  const packageJson = JSON.parse(
+    packageJsonFile.replaceAll('{{name}}', packageName)
   );
 
-  pkg.name = packageName;
+  packageJson.name = packageName;
 
-  write('package.json', JSON.stringify(pkg, null, 2) + '\n');
+  write('package.json', JSON.stringify(packageJson, null, 2) + '\n');
 
   let doneMessage = '';
   const cdProjectName = path.relative(cwd, root);
