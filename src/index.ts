@@ -187,7 +187,7 @@ async function init() {
   }
 
   if (!template) {
-    const selectedTemplate = await prompts.select({
+    const selectedTemplate = await prompts.select<TemplateType>({
       message: hasInvalidTemplate
         ? `"${argvTemplate}" isn't a valid template. Please choose from below: `
         : 'Select a template:',
@@ -195,6 +195,7 @@ async function init() {
         label: color(label),
         value: type,
       })),
+      initialValue: 'basic',
     });
 
     if (prompts.isCancel(selectedTemplate)) {
