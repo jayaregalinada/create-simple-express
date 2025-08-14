@@ -42,6 +42,8 @@ const TEMPLATES: Template[] = [
   },
 ];
 
+const DEFAULT_TEMPLATE = 'basic';
+
 const TEMPLATE_TYPES: TemplateType[] = TEMPLATES.map(
   (template) => template.type
 );
@@ -179,14 +181,11 @@ async function init() {
     packageName = packageNameResult;
   }
 
-  let template = argvTemplate;
-  let hasInvalidTemplate = false;
-  if (argvTemplate && !TEMPLATE_TYPES.includes(argvTemplate)) {
-    template = undefined;
-    hasInvalidTemplate = true;
-  }
+  let template = argvTemplate || DEFAULT_TEMPLATE;
+  let hasInvalidTemplate =
+    argvTemplate && !TEMPLATE_TYPES.includes(argvTemplate);
 
-  if (!template) {
+  if (!template || hasInvalidTemplate) {
     const selectedTemplate = await prompts.select<TemplateType>({
       message: hasInvalidTemplate
         ? `"${argvTemplate}" isn't a valid template. Please choose from below: `
